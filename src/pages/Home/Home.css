@@ -1,10 +1,11 @@
 .home{
-    min-height: 100vh;
+    min-height: 90vh;
     background-color: black;
     .image{
         width: 200px;
         & img{
             width: 100%;
+            box-shadow: 2px 3px 25px white;
         }
     }
     .user-information{
@@ -13,5 +14,8 @@
             font-size: 1.5rem;
             margin-right: 1rem;
         }
+    }
+    .nowrap{
+        white-space: nowrap;
     }
 }

@@ -1,3 +1,8 @@
+.navbar{
+  background-color: black !important;
+  border-bottom: 1px solid white;
+  min-height: 10vh;
+}
 .nav-link.active {
-  color: red !important;
+  color: brown !important;
 }
