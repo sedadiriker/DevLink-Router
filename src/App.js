@@ -6,6 +6,7 @@ import Followers from "./pages/Followers/Followers";
 import Following from "./pages/Following/Following";
 import { useState } from "react";
 import Login from "./pages/Login/Login";
+import Notfound from "./pages/NotFound/Notfound";
 
 function App() {
   const [logIn, setLogIn] = useState(false);
@@ -31,7 +32,9 @@ function App() {
             path="/login"
             element={logIn ? <Navigate to="/" /> : <Login id="login" login={handleLogin} />}
           />
+          <Route path="*" element={<Notfound/>} />
         </Routes>
+        <Footer/>
       </BrowserRouter>
     </div>
   );
