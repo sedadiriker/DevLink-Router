@@ -7,41 +7,19 @@ import Followers from "./pages/Followers/Followers";
 import Following from "./pages/Following/Following";
 import { useState } from "react";
 import Login from "./pages/Login/Login";
-import axios from "axios";
 
 function App() {
   const [logIn, setLogIn] = useState(false)
-  const [userEmail,setUserEmail] = useState("")
   const [user,setUser] = useState("")
 
-
-
-  const username = userEmail.split("@")[0]
-
-  const getUser = async () => {
-    const URL = `https://api.github.com/users/${username}`
-
-    try{
-      const res = await axios(URL)
-      const {data} = res  
-      return data
-    }catch(err){
-      console.log(err.message)
-    }
-  }
+  const handleLogin = (data) => {
+    setUser(data);
+    setLogIn(true);
+  };
+  
   // console.log(user)
-
-  const handleLogin = async (email) => {
-    setUserEmail(email)
-    try{
-      const userData = await getUser()
-      setUser(userData)
-      setLogIn(true)
-    }catch(err) {
-      alert("Kullanıcı bulunamadı")
-      setLogIn(false)
-    }
-  }
+ 
+ 
   return (
     <div className="App">
       {
@@ -51,7 +29,7 @@ function App() {
           <Routes>
            <Route path="/" element={<Home user={user}/>}/>
            <Route path="/about" element={<About/>}/>
-           <Route path="/followers" element={<Followers/>}/>
+           <Route path="/followers" element={<Followers user={user}/>}/>
            <Route path="/Following" element={<Following/>}/>
           </Routes>
           <Footer/>
