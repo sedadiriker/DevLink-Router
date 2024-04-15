@@ -1,9 +1,12 @@
-import React from 'react'
-
-const Home = () => {
+import "./Home.css"
+const Home = ({user}) => {
+  
   return (
-    <div>
-      
+    <div className="home">
+      <div className="image">
+        <img src={user ? user["avatar_url"] : ""} alt={user ? user.name : ""} />
+      </div>
+      <p>{user ? user.name : ""}</p>
     </div>
   )
 }
